@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Web Development & App Design Services | Digital Studio</title>
+    <meta name="description"
+        content="Expert web development, app designing, and frontend development services. We create modern, responsive websites and mobile applications for businesses worldwide.">
+    <meta name="keywords"
+        content="web development, app design, frontend development, responsive websites, mobile apps, digital studio">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css">
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00ff88',
+                        secondary: '#1a1a1a'
+                    },
+                    borderRadius: {
+                        'none': '0px',
+                        'sm': '4px',
+                        DEFAULT: '8px',
+                        'md': '12px',
+                        'lg': '16px',
+                        'xl': '20px',
+                        '2xl': '24px',
+                        '3xl': '32px',
+                        'full': '9999px',
+                        'button': '8px'
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+
+        .hero-bg {
+            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+        }
+
+        .floating-shape {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .floating-shape:nth-child(2) {
+            animation-delay: -2s;
+        }
+
+        .floating-shape:nth-child(3) {
+            animation-delay: -4s;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .service-card {
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .process-step {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .process-step.animate {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .portfolio-item {
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .portfolio-item:hover .portfolio-overlay {
+            opacity: 1;
+        }
+
+        .portfolio-overlay {
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card {
+            min-height: 200px;
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #00ff88;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            background-color: #00ff88;
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .form-input {
+            transition: all 0.3s ease;
+        }
+
+        .form-input:focus {
+            border-color: #00ff88;
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+        }
+
+        .sticky-header {
+            backdrop-filter: blur(10px);
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .count-up {
+            font-weight: 700;
+            color: #00ff88;
+        }
+    </style>
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Neon Stack",
+  "url": "https://neonstack.netlify.app",
+  "logo": "https://neonstack.netlify.app/images/logo.png",
+  "description": "Neon Stack provides professional web development, app design, and frontend development services with modern and creative solutions.",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rawalpindi",
+    "addressLocality": "Rawalpindi",
+    "addressRegion": "Punjab",
+    "postalCode": "46000",
+    "addressCountry": "PK"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+92-332-5394545",
+    "contactType": "Customer Service",
+    "areaServed": "PK",
+    "availableLanguage": ["English", "Urdu"]
+  },
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61576657978056",
+    "https://www.linkedin.com/in/arsal-ali-87a4a5367/",
+    "https://github.com/mohammad-arsal"
+  ]
+}
+
+</script>
+</head>
+
+<body class="bg-white">
+    <header class="fixed top-0 left-0 right-0 z-50 transition-all duration-300" id="header">
+        <nav class="flex items-center justify-between px-6 py-3 max-w-7xl mx-auto h-22">
+            <div class="flex items-center">
+                <img src="./images/logo.png" class="h-12 w-auto mr-3" alt="Neon Stack Logo">
+            </div>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#home" class="nav-link text-secondary font-medium">Home</a>
+                <a href="#services" class="nav-link text-secondary font-medium">Services</a>
+                <a href="#portfolio" class="nav-link text-secondary font-medium">Portfolio</a>
+                <a href="#about" class="nav-link text-secondary font-medium">About</a>
+                <a href="#contact" class="nav-link text-secondary font-medium">Contact</a>
+            </div>
+
+            <div class="flex items-center space-x-4">
+                <a href="https://wa.me/923325394545">
+                    <button
+                        class="hidden md:block bg-primary text-secondary px-6 py-3 !rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                        Get Started
+                    </button>
+                </a>
+
+            </div>
+        </nav>
+
+
+        <div class="md:hidden bg-white border-t hidden" id="mobile-menu">
+            <div class="px-6 py-4 space-y-4">
+                <a href="#home" class="block text-secondary font-medium">Home</a>
+                <a href="#services" class="block text-secondary font-medium">Services</a>
+                <a href="#portfolio" class="block text-secondary font-medium">Portfolio</a>
+                <a href="#about" class="block text-secondary font-medium">About</a>
+                <a href="#contact" class="block text-secondary font-medium">Contact</a>
+                <a href="https://wa.me/923325394545">
+                    <button class="w-full bg-primary text-secondary py-3 !rounded-button font-medium whitespace-nowrap">
+                        Get Started
+                    </button>
+                </a>
+
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="home" class="hero-bg min-h-screen flex items-center relative overflow-hidden pt-20">
+            <div class="absolute inset-0 overflow-hidden">
+                <div class="floating-shape absolute top-20 left-10 w-20 h-20 bg-primary opacity-10 rounded-full"></div>
+                <div
+                    class="floating-shape absolute top-40 right-20 w-16 h-16 bg-secondary opacity-5 rounded-lg transform rotate-45">
+                </div>
+                <div class="floating-shape absolute bottom-32 left-1/4 w-12 h-12 bg-primary opacity-15 rounded-full">
+                </div>
+            </div>
+            <div class="max-w-7xl mx-auto px-6 relative z-10 w-full">
+                <div class="text-center max-w-4xl mx-auto">
+                    <h1 class="text-5xl md:text-7xl font-bold text-secondary mb-6 leading-tight">
+                        Professional Web &
+                        <span class="text-primary">App Design</span> Services
+                    </h1>
+                    <p class="text-xl md:text-2xl text-gray-600 mb-8 leading-relaxed">
+                        I create modern, responsive websites and innovative mobile applications designs that drive
+                        business
+                        growth through exceptional frontend development and user-centered design.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <a href="https://wa.me/923325394545">
+                            <button
+                                class="bg-secondary text-white px-20 py-4 !rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                                Let's Talk
+                            </button>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="about" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="grid lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <h2 class="text-4xl md:text-5xl font-bold text-secondary mb-6">About Me</h2>
+                        <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+                            I am a passionate App designer and a frontend Developer dedicated to creating digital
+                            experiences that make a
+                            difference. With over 2 years of experience, I've helped hundreds of businesses establish
+                            their online presence.
+                        </p>
+                        <p class="text-gray-600 mb-8 leading-relaxed">
+                            My mission is to bridge the gap between innovative technology and exceptional user
+                            experience. I believe that great design and solid development go hand in hand to create
+                            solutions that not only look amazing but perform flawlessly.
+                        </p>
+                        <div class="grid grid-cols-3 gap-8">
+                            <div class="text-center">
+                                <div class="count-up text-3xl font-bold mb-2" data-target="80">0</div>
+                                <p class="text-gray-600">Projects Completed</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="count-up text-3xl font-bold mb-2" data-target="98">0</div>
+                                <p class="text-gray-600">Client Satisfaction %</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="count-up text-3xl font-bold mb-2" data-target="2">0</div>
+                                <p class="text-gray-600">Years Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="aspect-square rounded-full overflow-hidden">
+  <img src="./images/About-image.jpg" alt="about image" class="w-full h-full object-cover rounded-full">
+</div>
+
+                </div>
+                <div class="mt-20">
+                    <h3 class="text-3xl font-bold text-secondary text-center mb-12">My Expertise</h3>
+                    <div class="grid md:grid-cols-4 gap-8">
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-xl mx-auto mb-4">
+                                <i class="ri-code-s-slash-line text-2xl text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-secondary mb-2">Front-End</h4>
+                            <p class="text-sm text-gray-500">Fully Responsive Website Designs</p>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-xl mx-auto mb-4">
+                                <i class="ri-layout-line text-2xl text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-secondary mb-2">UI/UX Design</h4>
+                            <p class="text-sm text-gray-500">User-centered design approach</p>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-xl mx-auto mb-4">
+                                <i class="ri-smartphone-line text-2xl text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-secondary mb-2">Mobile Apps</h4>
+                            <p class="text-sm text-gray-500">Cross-platform app development</p>
+                        </div>
+                        <div class="text-center">
+                            <div
+                                class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-xl mx-auto mb-4">
+                                <i class="ri-speed-line text-2xl text-primary"></i>
+                            </div>
+                            <h4 class="text-xl font-bold text-secondary mb-2">Performance</h4>
+                            <p class="text-sm text-gray-500">Optimized for speed and efficiency</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="services" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-secondary mb-6">Our Services</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        We specialize in creating digital experiences that combine cutting-edge technology with
+                        exceptional design to deliver results that exceed expectations.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <div class="service-card bg-white border border-gray-100 p-8 rounded-2xl">
+                        <div
+                            class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-xl mb-6">
+                            <i class="ri-code-s-slash-line text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary mb-4">Creative Web Designs</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Build powerful, scalable websites with modern technologies.
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-gray-600">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                Responsive Design
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                SEO Optimization
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                Fast Performance
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                Secure & Scalable
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-card bg-white border border-gray-100 p-8 rounded-2xl">
+                        <div
+                            class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-xl mb-6">
+                            <i class="ri-smartphone-line text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary mb-4">Creative App Designing</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Design intuitive mobile applications that users love.
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-gray-600">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                UI/UX Design
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                Prototyping
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                User Testing
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                Cross-Platform
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="service-card bg-white border border-gray-100 p-8 rounded-2xl">
+                        <div
+                            class="w-16 h-16 flex items-center justify-center bg-primary bg-opacity-10 rounded-xl mb-6">
+                            <i class="ri-layout-line text-2xl text-primary"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-secondary mb-4">Frontend Development</h3>
+                        <p class="text-gray-600 mb-6 leading-relaxed">
+                            Craft exceptional user interfaces with modern frameworks.
+                        </p>
+                        <ul class="space-y-2">
+                            <li class="flex items-center text-gray-600">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                Responsive
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                Modern CSS
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                Performance Optimization
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <i class="ri-check-line text-primary mr-2"></i>
+                                Accessibility
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="process" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-secondary mb-6">Our Development Process</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        We follow a proven methodology that ensures your project is delivered on time, within budget,
+                        and exceeds your expectations.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-4 gap-8">
+                    <div class="process-step text-center">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary rounded-full mx-auto mb-4">
+                            <i class="ri-search-line text-2xl text-secondary"></i>
+                        </div>
+                        <div class="w-full h-1 bg-primary mb-4 hidden md:block"></div>
+                        <h3 class="text-xl font-bold text-secondary mb-2">Discovery</h3>
+                        <p class="text-gray-600">Understanding your goals, target audience, and project requirements
+                            through detailed consultation.</p>
+                    </div>
+                    <div class="process-step text-center">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary rounded-full mx-auto mb-4">
+                            <i class="ri-pencil-ruler-2-line text-2xl text-secondary"></i>
+                        </div>
+                        <div class="w-full h-1 bg-primary mb-4 hidden md:block"></div>
+                        <h3 class="text-xl font-bold text-secondary mb-2">Design</h3>
+                        <p class="text-gray-600">Creating wireframes, mockups, and prototypes that align with your brand
+                            and user needs.</p>
+                    </div>
+                    <div class="process-step text-center">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary rounded-full mx-auto mb-4">
+                            <i class="ri-code-box-line text-2xl text-secondary"></i>
+                        </div>
+                        <div class="w-full h-1 bg-primary mb-4 hidden md:block"></div>
+                        <h3 class="text-xl font-bold text-secondary mb-2">Development</h3>
+                        <p class="text-gray-600">Building your project with clean, scalable code using the latest
+                            technologies and best practices.</p>
+                    </div>
+                    <div class="process-step text-center">
+                        <div class="w-16 h-16 flex items-center justify-center bg-primary rounded-full mx-auto mb-4">
+                            <i class="ri-rocket-line text-2xl text-secondary"></i>
+                        </div>
+                        <div class="w-full h-1 bg-primary mb-4 hidden md:block"></div>
+                        <h3 class="text-xl font-bold text-secondary mb-2">Launch</h3>
+                        <p class="text-gray-600">Thorough testing, optimization, and deployment to ensure a smooth and
+                            successful launch.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="portfolio" class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-secondary mb-6">Our Portfolio</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Explore our recent projects and see how we've helped businesses transform their digital presence
+                        with innovative solutions.
+                    </p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-lg relative group">
+                        <div class="aspect-video bg-cover bg-center">
+                            <img src="./images/project1.png" alt="">
+                        </div>
+                        <div
+                            class="portfolio-overlay absolute inset-0 bg-secondary bg-opacity-90 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <h3 class="text-xl font-bold mb-2">E-Commerce Platform</h3>
+                                <p class="mb-4">Modern shopping experience</p>
+                                <button
+                                    class="bg-primary text-secondary px-6 py-2 !rounded-button font-medium whitespace-nowrap">
+                                    View Case Study
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-2">TechStore Platform</h3>
+                            <p class="text-gray-600">Frontend Development</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-lg relative group">
+                        <div class="aspect-video bg-cover bg-center">
+                            <img src="./images/project3.png" alt="">
+                        </div>
+                        <div
+                            class="portfolio-overlay absolute inset-0 bg-secondary bg-opacity-90 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <h3 class="text-xl font-bold mb-2">E-Commerce Store</h3>
+                                <p class="mb-4">E-Commerce</p>
+                                <button
+                                    class="bg-primary text-secondary px-6 py-2 !rounded-button font-medium whitespace-nowrap">
+                                    View Case Study
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-2">E-Commerce Store</h3>
+                            <p class="text-gray-600">web Design</p>
+                        </div>
+                    </div>
+                    <div class="portfolio-item bg-white rounded-2xl overflow-hidden shadow-lg relative group">
+                        <div class="aspect-video bg-cover bg-center">
+                            <img src="./images/project2.png" alt="">
+                        </div>
+                        <div
+                            class="portfolio-overlay absolute inset-0 bg-secondary bg-opacity-90 flex items-center justify-center">
+                            <div class="text-center text-white">
+                                <h3 class="text-xl font-bold mb-2">Portfolio Website</h3>
+                                <p class="mb-4">Professional presence</p>
+                                <button
+                                    class="bg-primary text-secondary px-6 py-2 !rounded-button font-medium whitespace-nowrap">
+                                    View Case Study
+                                </button>
+                            </div>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-secondary mb-2">Portfolio Website</h3>
+                            <p class="text-gray-600">Web Development</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="py-20 bg-gray-50">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-4xl md:text-5xl font-bold text-secondary mb-6">Let's Work Together</h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                        Ready to start your project? Get in touch with me and let's discuss how I can help bring your
+                        vision to life.
+                    </p>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-16">
+                    <div>
+                        <form id="contactForm" class="space-y-6">
+                            <div>
+                                <label class="block text-secondary font-medium mb-2">Name</label>
+                                <input type="text"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none text-sm"
+                                    placeholder="Your full name" name="name" required>
+                            </div>
+                            <div>
+                                <label class="block text-secondary font-medium mb-2">Email</label>
+                                <input type="email"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none text-sm"
+                                    placeholder="your@email.com" name="email" required>
+                            </div>
+                            <div>
+                                <label class="block text-secondary font-medium mb-2">Project Details</label>
+                                <textarea rows="4"
+                                    class="form-input w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none text-sm resize-none"
+                                    placeholder="Tell us about your project requirements..." name="message"
+                                    required></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full bg-primary text-secondary py-4 !rounded-button font-medium hover:bg-opacity-90 transition-all duration-300 whitespace-nowrap">
+                                Send Message
+                            </button>
+                        </form>
+
+                        <!-- Hidden Thank You Message -->
+                        <div id="thankYouMessage" class="hidden text-green-600 font-medium text-center mt-4">
+                            ✅ Thanks! Your message has been sent successfully.
+                        </div>
+
+
+
+                    </div>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-2xl font-bold text-secondary mb-6">Get In Touch</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-lg mr-4">
+                                        <i class="ri-map-pin-line text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-secondary">Address</p>
+                                        <p class="text-gray-600">Pakistan, Rawalpindi</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-lg mr-4">
+                                        <i class="ri-phone-line text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-secondary">Phone</p>
+                                        <p class="text-gray-600">+92 3325394545</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <div
+                                        class="w-12 h-12 flex items-center justify-center bg-primary bg-opacity-10 rounded-lg mr-4">
+                                        <i class="ri-mail-line text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <p class="font-medium text-secondary">Email</p>
+                                        <p class="text-gray-600">arsal2138@gmail.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xl font-bold text-secondary mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.facebook.com/profile.php?id=61576657978056"
+                                    class="w-12 h-12 flex items-center justify-center bg-secondary text-white rounded-lg hover:bg-primary hover:text-secondary transition-all duration-300">
+                                    <i class="ri-facebook-line"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/arsal-ali-87a4a5367/"
+                                    class="w-12 h-12 flex items-center justify-center bg-secondary text-white rounded-lg hover:bg-primary hover:text-secondary transition-all duration-300">
+                                    <i class="ri-linkedin-line"></i>
+                                </a>
+                                <a href="https://wa.me/923325394545"
+                                    class="w-12 h-12 flex items-center justify-center bg-secondary text-white rounded-lg hover:bg-primary hover:text-secondary transition-all duration-300">
+                                    <i class="ri-whatsapp-line"></i>
+                                </a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="bg-[#1F2937] text-white py-16">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center mb-6">
+                        <img src="./images/logo.png" class="h-12 w-auto mr-3" alt="Neon Stack Logo">
+                    </div>
+                    <p class="text-gray-300 mb-6 leading-relaxed">
+                        I create exceptional digital experiences through innovative web development and app design
+                        solutions.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="https://www.facebook.com/profile.php?id=61576657978056"
+                            class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-lg hover:bg-primary hover:text-secondary transition-all duration-300">
+                            <i class="ri-facebook-line"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/arsal-ali-87a4a5367/"
+                            class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-lg hover:bg-primary hover:text-secondary transition-all duration-300">
+                            <i class="ri-linkedin-line"></i>
+                        </a>
+                        <a href="https://wa.me/923325394545"
+                            class="w-10 h-10 flex items-center justify-center bg-gray-700 rounded-lg hover:bg-primary hover:text-secondary transition-all duration-300">
+                            <i class="ri-whatsapp-line"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Web
+                                Development</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">App
+                                Design</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Frontend
+                                Development</a></li>
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">UI/UX
+                                Design</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Company</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">About
+                                Us</a></li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-primary transition-colors duration-300">Portfolio</a>
+                        </li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-primary transition-colors duration-300">Process</a></li>
+                        <li>
+                        <li><a href="#"
+                                class="text-gray-300 hover:text-primary transition-colors duration-300">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-bold mb-6">Contact Info</h4>
+                    <div class="space-y-3">
+                        <p class="text-gray-300">Pakistan, Rawalpindi</p>
+                        <p class="text-gray-300">+92 332-5394545</p>
+                        <p class="text-gray-300">arsal2138@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-300 mb-4 md:mb-0">© 2025 Neon Stack. All rights reserved.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Privacy
+                        Policy</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Terms of
+                        Service</a>
+                    <a href="#" class="text-gray-300 hover:text-primary transition-colors duration-300">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", async function (e) {
+            e.preventDefault(); // stop normal form submit
+
+            const form = e.target;
+            const data = new FormData(form);
+
+            try {
+                let response = await fetch("https://formspree.io/f/xovlpzln", {
+                    method: "POST",
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    form.reset(); // clear form
+                    form.classList.add("hidden"); // hide form
+                    document.getElementById("thankYouMessage").classList.remove("hidden"); // show thank you
+                } else {
+                    alert("Something went wrong. Please try again!");
+                }
+            } catch (error) {
+                alert("Error: " + error.message);
+            }
+        });
+    </script>
+
+    <script id="header-scroll">
+        document.addEventListener('DOMContentLoaded', function () {
+            const header = document.getElementById('header');
+            window.addEventListener('scroll', function () {
+                if (window.scrollY > 100) {
+                    header.classList.add('sticky-header');
+                } else {
+                    header.classList.remove('sticky-header');
+                }
+            });
+        });
+    </script>
+    <script id="mobile-menu">
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuBtn.addEventListener('click', function () {
+                mobileMenu.classList.toggle('hidden');
+            });
+        });
+    </script>
+    <script id="process-animation">
+        document.addEventListener('DOMContentLoaded', function () {
+            const processSteps = document.querySelectorAll('.process-step');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('animate');
+                        }, index * 200);
+                    }
+                });
+            }, { threshold: 0.1 });
+            processSteps.forEach(step => {
+                observer.observe(step);
+            });
+        });
+    </script>
+    <script id="counter-animation">
+        document.addEventListener('DOMContentLoaded', function () {
+            const counters = document.querySelectorAll('.count-up');
+            const animateCounter = (counter) => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2000;
+                const step = target / (duration / 16);
+                let current = 0;
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        counter.textContent = target;
+                        clearInterval(timer);
+                    } else {
+                        counter.textContent = Math.floor(current);
+                    }
+                }, 16);
+            };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateCounter(entry.target);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            counters.forEach(counter => {
+                observer.observe(counter);
+            });
+        });
+    </script>
+    <script id="smooth-scroll">
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
